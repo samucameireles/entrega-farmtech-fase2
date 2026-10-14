@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "author": "FarmTech Solutions",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -80,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnN",
+      "top": -120,
+      "left": -220,
+      "attrs": {
+        "color": "green",
+        "key": "1"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnP",
+      "top": -40,
+      "left": -220,
+      "attrs": {
+        "color": "green",
+        "key": "2"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnK",
+      "top": 40,
+      "left": -220,
+      "attrs": {
+        "color": "green",
+        "key": "3"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 150,
+      "left": -260,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": 150,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledAlerta",
+      "top": 260,
+      "left": 300,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 300,
+      "left": 200,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "esp:D12",
+      "btnN:1.l",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "btnN:2.l",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:D14",
+      "btnP:1.l",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "btnP:2.l",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:D27",
+      "btnK:1.l",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "btnK:2.l",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:D15",
+      "dht1:SDA",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "dht1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "dht1:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ldr1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ldr1:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ldr1:AO",
+      "esp:D34",
+      "yellow",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:D26",
+      "relay1:IN",
+      "blue",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "relay1:VCC",
+      "esp:VIN",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "relay1:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:D2",
+      "r2:1",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "r2:2",
+      "ledAlerta:A",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ledAlerta:C",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ]
+  ]
+}
